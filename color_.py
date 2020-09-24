@@ -146,13 +146,13 @@ def cbar_dice(fig, ax, cont, lab_ind):
 
 def contour_cut(fig, ax, lab_tgt, lab_ind, zmin, zmax):
     cont20 = tricont_sub(ax[0],pl_0x.y, pl_0x.z, pl_0x[lab_tgt], zmin, zmax, 31, lab_ind)
-    cont21 = tricont_sub(ax[1],pl_0y.x, pl_0x.z, pl_0x[lab_tgt], zmin, zmax, 31, lab_ind)
+    cont21 = tricont_sub(ax[1],pl_0y.x, pl_0y.z, pl_0y[lab_tgt], zmin, zmax, 31, lab_ind)
     cont22 = tricont_sub(ax[2],pl_0z.x, pl_0z.y, pl_0z[lab_tgt], zmin, zmax, 31, lab_ind)
     ax[0].set_title('cut at x=0')
     ax[1].set_title('cut at y=0')
     ax[2].set_title('cut at z=0')
     for i in range(3):
-        ax[i].set_xlim(-175, 175)
+        ax[i].set_xlim(-300, 300)
     ax[0].set_xlabel('y (cm)')
     ax[0].set_ylabel('z (cm)')
     ax[1].set_xlabel('x (cm)')
