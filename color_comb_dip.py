@@ -26,7 +26,8 @@ dir_dip='D_dipole_000A_000A_mu_1E5_MB_R_LE_500_LES_510_SHELL/'
 dir_coil='D_zero_%s_%s_mu_1E5_MB_R_LE_500_LES_510_SHELL/' %(identifier, identifier)
 suptitles = ''
 # dir_dip =  'dipole3_coils_%s/' %identifier
-plot_dir = 'plots_cm_%s/' %identifier
+#plot_dir = 'plots_cm_%s/' %identifier
+plot_dir = 'plots_d_%s/' %identifier
 
 texts = dir_dip.split('_')
 if not os.path.exists(plot_dir):
@@ -88,7 +89,7 @@ gr_my['B'] = np.sqrt(gr_my.Bx**2+gr_my.By**2+gr_my.Bz**2)
 gr_pz['B'] = np.sqrt(gr_pz.Bx**2+gr_pz.By**2+gr_pz.Bz**2)
 gr_mz['B'] = np.sqrt(gr_mz.Bx**2+gr_mz.By**2+gr_mz.Bz**2)
 
-
+""" 
 pl_0x_cm = pl_0x[['Bx','By','Bz','Phi']].add(pl_0x_c[['Bx','By','Bz','Phi']], fill_value=0)
 pl_0x_cm[['x','y','z','Phi']]=  pl_0x[['x','y','z','Phi']]
 pl_0x_cm['B'] = np.sqrt(pl_0x_cm.Bx**2+pl_0x_cm.By**2+pl_0x_cm.Bz**2)
@@ -118,8 +119,18 @@ pl_pz_cm['B'] = np.sqrt(pl_pz_cm.Bx**2+pl_pz_cm.By**2+pl_pz_cm.Bz**2)
 pl_mz_cm = pl_mz[['Bx','By','Bz','Phi']].add(pl_mz_c[['Bx','By','Bz','Phi']], fill_value=0)
 pl_mz_cm[['x','y','z','Phi']]=  pl_mz[['x','y','z','Phi']]
 pl_mz_cm['B'] = np.sqrt(pl_mz_cm.Bx**2+pl_mz_cm.By**2+pl_mz_cm.Bz**2)
+ """
+pl_0x_cm = pl_0x
+pl_px_cm = pl_px
+pl_mx_cm = pl_mx
 
+pl_0y_cm = pl_0y
+pl_py_cm = pl_py
+pl_my_cm = pl_my
 
+pl_0z_cm = pl_0z
+pl_pz_cm = pl_pz
+pl_mz_cm = pl_mz
 
 Bx_max0 = np.max([np.max(sig_cut(pl_0x_cm.Bx, SD)),
                 np.max(sig_cut(pl_0y_cm.Bx, SD)),

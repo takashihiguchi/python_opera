@@ -39,12 +39,18 @@ def tricont_sub(ax, x, y, z, z_min, z_max, level_dv, cbar_label):
     ax.set_aspect('equal')
     ax.get_xaxis().labelpad = 1
     ax.get_yaxis().labelpad = 1
-    levels = np.linspace(-zabsmax, zabsmax, level_dv)
+    Ndev = level_dv
+    if (Ndev//2-Ndev/2.)==0:
+        Ndev = Ndev+1
+    levels = np.linspace(-zabsmax_r, zabsmax_r, Ndev)
     xy_tri = tri.Triangulation(x,y)
     # cont_tri = ax.tricontourf(x, y, z, xy_tri, levels=levels, vmin=-zabsmax, vmax=zabsmax, cmap=  'RdYlBu_r', locator=ticker.LogLocator())
     cont_tri = ax.tricontourf(x, y, z, xy_tri, levels=levels, vmin=-zabsmax_r, vmax=zabsmax_r, cmap=  'RdYlBu_r')
-    cont_tri.set_clim(-zabsmax_r, zabsmax_r)
-    return cont_tri
+    #cont_tri.set_clim(-zabsmax_r, zabsmax_r)
+    #cont_tri.set_clim(-zabsmax_r, zabsmax_r)
+    #cont_tri.set_ticks(levels)
+    #cont_tri.draw_all()
+    return cont_tri, [-zabsmax_r, zabsmax_r]
 
 #def tricont_sub(ax, x, y, z, z_min, z_max, level_dv, cbar_label):
 #    ax.set_aspect('equal')
@@ -63,8 +69,9 @@ def sct_sub(ax, x, y, z, z_min, z_max):
     ax.get_yaxis().labelpad = 1
 
     scat = ax.scatter(x, y, c=z, s=1.5, vmin=-zabsmax_r, vmax=zabsmax_r, cmap='RdYlBu_r')
-    scat.set_clim(-zabsmax_r, zabsmax)
-    return scat
+    #scat.set_clim(-zabsmax_r, zabsmax)
+    #sact.set_clim(-zabsmax_r, zabsmax)
+    return scat, [-zabsmax_r, zabsmax_r]
 
 def dice(ax):
     for i in [0,2,3]:
