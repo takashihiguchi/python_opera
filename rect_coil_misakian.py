@@ -4,13 +4,18 @@
 # 2*ay : the edge length along the y-axis
 # h : the z-coordinate of the coil center 
 
+# Example:
+# If you want to get a B_x component of the field created
+# by a square coils 1m x 1m placed at (0,0,-0.1m) with current 10A pointing to +z 
+# at a point P(0, 0.5m, 0.2m),
+# b_z(0, 0.5, 0.2, 0.5, 0.5, -0.1, 10)[0]
+
 
 import numpy as np
 
 mu0 = 4e-7*np.pi
 
 def b_z(x,y,z,ax,ay,h,I):
-    # P and Pc should be 3-dim array each
     # x, y, z = P[0], P[1], P[2]
     x1, y1, z1 = 0, 0, h
     dx = x-x1
@@ -44,7 +49,6 @@ def b_z(x,y,z,ax,ay,h,I):
 
 
 def b_x(x, y, z, ay, az, h, I):
-    # P and Pc should be 3-dim array each
     # x, y, z = P[0], P[1], P[2]
     x1, y1, z1 = h, 0, 0
     dx = x-x1
