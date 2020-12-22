@@ -20,8 +20,8 @@ identifier = str(sys.argv[1])
 
 # dir_name =  'superB_1E5A_000A_fine/'
 # plot_dir = 'plots_B_1E5A_000A_fine/'
-
-dir_name =  'dipole3_coils_%s/' %identifier
+dir_name='D_dipole_000A_000A_mu_1E5_MB_R_LE_500_LES_510_SHELL/'
+# dir_name =  'dipole3_coils_%s/' %identifier
 plot_dir = 'plots3_%s/' %identifier
 
 texts = dir_name.split('_')
